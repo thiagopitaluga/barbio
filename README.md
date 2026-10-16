@@ -37,3 +37,7 @@ npm run build
 Para operar com várias barbearias e clientes reais, faltam: banco compartilhado com isolamento por barbearia, autenticação e autorização por papel, confirmação concorrente de reservas no servidor, backups do banco, integração oficial de mensagens, conciliação de pagamentos e testes de carga e segurança. O projeto Vercel já foi criado, e o recurso de autenticação Clerk está provisionado, mas não está ligado ao aplicativo. A ativação de um banco novo no Marketplace da Vercel aguarda o aceite dos termos do provedor pelo titular da conta.
 
 A publicação não processa pagamentos nem envia mensagens automaticamente.
+
+## Modelo para a versão com banco
+
+O arquivo `database/schema.sql` contém um esquema inicial PostgreSQL para a evolução do produto. Ele separa os registros por barbearia, relaciona agenda, caixa, estoque e clientes e impede a gravação de horários sobrepostos para o mesmo profissional. É uma migração inicial, ainda não aplicada à versão publicada. A ativação do banco, das APIs e das permissões deve ocorrer em conjunto antes de usar dados reais.
